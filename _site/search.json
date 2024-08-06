@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Average Hourly Wages Yearly in the US",
+    "section": "",
+    "text": "Summary\nThe “Wages by Education” dataset provides a detailed examination of the average hourly wages of workers in the USA, segmented by their highest level of education attained. Spanning from 1973 to 2022, this dataset is sourced from the Economic Policy Institute’s State of Working America Data Library.\nKey research areas and insights include exploring the wage gap based on education levels and identifying trends over time. Analysts can delve into the impact of education on wages across different demographic groups, such as gender and race/ethnicity, and investigate changes in wage inequality between education groups over the decades. The dataset allows for the examination of the relationship between wages and economic indicators like inflation and GDP. Additionally, it enables comparisons of wage trends in various sectors or industries based on education levels and visualizes the wage premiums associated with advanced degrees and their changes over time. The dataset also facilitates exploration of how educational attainment affects wage disparity.\n\n\nGraph"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hello, My name is SriRitvik Yellamilli and I am a high school student in Illinois.\nGithub account: Github - Pineapplespace789"
+  },
+  {
+    "objectID": "about.html#about-me",
+    "href": "about.html#about-me",
+    "title": "About",
+    "section": "",
+    "text": "Hello, My name is SriRitvik Yellamilli and I am a high school student in Illinois.\nGithub account: Github - Pineapplespace789"
+  },
+  {
+    "objectID": "about.html#about-this-project",
+    "href": "about.html#about-this-project",
+    "title": "About",
+    "section": "About This Project",
+    "text": "About This Project\nFind the Github repository here: Average Wages Repository\nThis project was created as a part of Kane’s Data Science Bootcamp.\nBootcamp Website\nThese were the resources I used to complete this project.\nChatGPT & Kaggle - Wages by Education in the USA (1973-2022)"
+  },
+  {
+    "objectID": "sources.html",
+    "href": "sources.html",
+    "title": "Sources",
+    "section": "",
+    "text": "This project takes its data fromWages by Education in the USA (1973-2022) by asaniczka on Kaggle.\nThe “Wages by Education” dataset offers a comprehensive analysis of average hourly wages in the USA, categorized by the highest level of education attained, spanning from 1973 to 2022. This dataset, sourced from the Economic Policy Institute’s State of Working America Data Library, enables a detailed exploration of the wage gap based on educational attainment and reveals trends over the decades. It provides opportunities to analyze how education impacts wages across different demographic groups, such as gender and race/ethnicity, and investigate the evolution of wage inequality among educational groups. Researchers can also examine correlations between wages and economic indicators like inflation and GDP, and compare wage trends across various sectors and industries. Additionally, the dataset allows for the visualization of wage premiums associated with advanced degrees and their temporal changes, thereby offering valuable insights into how educational attainment influences wage disparity."
+  },
+  {
+    "objectID": "sources.html#about-me",
+    "href": "sources.html#about-me",
+    "title": "Sources",
+    "section": "",
+    "text": "Hello, My name is SriRitvik Yellamilli and I am a high school student in Illinois.\nGithub account: https://github.com/Pineapplespace789"
+  },
+  {
+    "objectID": "sources.html#about-this-project",
+    "href": "sources.html#about-this-project",
+    "title": "Sources",
+    "section": "About This Project",
+    "text": "About This Project\nFind the Github repository here: https://github.com/Pineapplespace789/Most_Subscribed_YT_Channels\nThis project was created as a part of Kane’s Data Science Bootcamp.\nhttps://bootcamp.davidkane.info/\nThese were the resources/sources I used to complete this project.\nhttps://chatgpt.com & Kaggle - YouTube’s Most Subscribed Channels"
+  },
+  {
+    "objectID": "graphs.html",
+    "href": "graphs.html",
+    "title": "Graphs",
+    "section": "",
+    "text": "Overview of Hourly Wages based off Education Level\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhite People’s Hourly Wages based off Education Level"
+  },
+  {
+    "objectID": "graphs.html#about-me",
+    "href": "graphs.html#about-me",
+    "title": "Graphs",
+    "section": "",
+    "text": "Hello, My name is SriRitvik Yellamilli and I am a high school student in Illinois.\nGithub account: https://github.com/Pineapplespace789"
+  },
+  {
+    "objectID": "graphs.html#about-this-project",
+    "href": "graphs.html#about-this-project",
+    "title": "Graphs",
+    "section": "About This Project",
+    "text": "About This Project\nFind the Github repository here: https://github.com/Pineapplespace789/Most_Subscribed_YT_Channels\nThis project was created as a part of Kane’s Data Science Bootcamp.\nhttps://bootcamp.davidkane.info/\nThese were the resources/sources I used to complete this project.\nhttps://chatgpt.com & Kaggle - YouTube’s Most Subscribed Channels"
+  },
+  {
+    "objectID": "model.html",
+    "href": "model.html",
+    "title": "Model",
+    "section": "",
+    "text": "To answer the question of which genre is the best to listen to, we first have to see which of the favorite genres are most associated with high/low levels of depression, by using a bayesian regression model. For this initial model, we are using this formula:\n\\[\ndepression = \\beta_{0} + \\beta_{1} fav\\_genre_i\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nBeta\n95% CI\n1\n\n\n\n\nfav_genre\n\n\n\n\n\n\n    fav_genreCountry\n0.23\n-1.2, 1.7\n\n\n    fav_genreEDM\n1.0\n-0.24, 2.3\n\n\n    fav_genreFolk\n1.0\n-0.30, 2.4\n\n\n    fav_genreGospel\n-1.5\n-4.1, 1.0\n\n\n    fav_genreHiphop\n1.7\n0.48, 3.0\n\n\n    fav_genreJazz\n0.41\n-1.1, 1.9\n\n\n    fav_genreKpop\n0.23\n-1.2, 1.7\n\n\n    fav_genreLatin\n0.45\n-3.9, 4.7\n\n\n    fav_genreLofi\n2.5\n0.55, 4.6\n\n\n    fav_genreMetal\n0.98\n0.01, 2.0\n\n\n    fav_genrePop\n0.40\n-0.56, 1.4\n\n\n    fav_genreR&B\n-0.25\n-1.5, 1.0\n\n\n    fav_genreRap\n-0.08\n-1.5, 1.4\n\n\n    fav_genreRock\n1.2\n0.29, 2.1\n\n\n    fav_genreVideogamemusic\n0.40\n-0.78, 1.6\n\n\n\n1\nCI = Credible Interval\n\n\n\n\n\n\n\n\n\nWe see that on average, gospel listeners generally have lower levels of depression, while lofi listeners generally have higher levels of depression. We calculate this further using this model:\n\\[\ndepression = \\beta_{0} + \\beta_{1} gospel\\_freq_i + \\beta_{2} lofi\\_freq_i + \\beta_{3} music\\_effects_i\n\\]\n\n\n Family: gaussian \n  Links: mu = identity; sigma = identity \nFormula: depression ~ gospel_freq + lofi_freq + music_effects \n   Data: df_filtered (Number of observations: 728) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nRegression Coefficients:\n                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS\nIntercept                     4.62      0.21     4.22     5.01 1.00     7216\ngospel_freqRarely            -0.01      0.30    -0.61     0.58 1.00     8907\ngospel_freqSometimes          0.09      0.45    -0.77     0.98 1.00     8061\ngospel_freqVeryfrequently    -1.01      0.82    -2.61     0.59 1.00     8276\nlofi_freqRarely               0.49      0.28    -0.06     1.02 1.00     6127\nlofi_freqSometimes            0.53      0.30    -0.06     1.11 1.00     6348\nlofi_freqVeryfrequently       0.02      0.37    -0.69     0.79 1.00     6744\nmusic_effectsNoeffect        -0.48      0.27    -1.01     0.05 1.00     8628\nmusic_effectsWorsen           2.31      0.73     0.88     3.72 1.00     8648\n                          Tail_ESS\nIntercept                     3314\ngospel_freqRarely             2659\ngospel_freqSometimes          2888\ngospel_freqVeryfrequently     2825\nlofi_freqRarely               3207\nlofi_freqSometimes            3377\nlofi_freqVeryfrequently       3218\nmusic_effectsNoeffect         3122\nmusic_effectsWorsen           3208\n\nFurther Distributional Parameters:\n      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nsigma     3.00      0.08     2.85     3.16 1.00     6872     2783\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1).\n\n\nTo give us a baseline of how music can transform mental health, we include the music effects variable. While listening to gospel music frequently seems to have a little bit of an effect on lowering levels of depression, listening to lofi has no effect on increasing or decreasing depression levels.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nBeta\n95% CI\n1\n\n\n\n\ngospel_freq\n\n\n\n\n\n\n    gospel_freqRarely\n-0.01\n-0.61, 0.58\n\n\n    gospel_freqSometimes\n0.09\n-0.77, 0.98\n\n\n    gospel_freqVeryfrequently\n-1.0\n-2.6, 0.59\n\n\nlofi_freq\n\n\n\n\n\n\n    lofi_freqRarely\n0.49\n-0.06, 1.0\n\n\n    lofi_freqSometimes\n0.53\n-0.06, 1.1\n\n\n    lofi_freqVeryfrequently\n0.02\n-0.69, 0.79\n\n\nmusic_effects\n\n\n\n\n\n\n    music_effectsNoeffect\n-0.48\n-1.0, 0.05\n\n\n    music_effectsWorsen\n2.3\n0.88, 3.7\n\n\n\n1\nCI = Credible Interval\n\n\n\n\n\n\n\n\n\nIn summary, there is no definite genre that listening to increases or decreases depression levels, though listening to the gospel genre might make a bit of an effect. This may be because of the religious ties to gospel music, which generally connects people and helps them mentally.\nLike every bayesian regression model, this model is not completely accurate in that it was only sent out on a couple social media platforms (Reddit, Discord, other social media), which doesn’t include data from people not involved online, and was advertised on posters and business cards (which restrict the data to a certain proximity)."
+  },
+  {
+    "objectID": "model.html#about-me",
+    "href": "model.html#about-me",
+    "title": "Model",
+    "section": "",
+    "text": "Hello, My name is SriRitvik Yellamilli and I am a high school student in Illinois.\nGithub account: https://github.com/Pineapplespace789"
+  },
+  {
+    "objectID": "model.html#about-this-project",
+    "href": "model.html#about-this-project",
+    "title": "Model",
+    "section": "About This Project",
+    "text": "About This Project\nFind the Github repository here: https://github.com/Pineapplespace789/Most_Subscribed_YT_Channels\nThis project was created as a part of Kane’s Data Science Bootcamp.\nhttps://bootcamp.davidkane.info/\nThese were the resources/sources I used to complete this project.\nhttps://chatgpt.com & Kaggle - YouTube’s Most Subscribed Channels"
+  },
+  {
+    "objectID": "graphs.html#model",
+    "href": "graphs.html#model",
+    "title": "Graphs",
+    "section": "",
+    "text": "The final model we used to analyze the impact of education on wages is as follows:\n\\[\n\\text{wage} = \\beta_{0} + \\beta_{1} \\times \\text{education\\_level}_i + \\beta_{2} \\times \\text{year}_i + \\epsilon_i\n\\]\nWhere: - () is the average hourly wage. - () represents the highest level of education attained. - () is the year of the observation. - ({0}), ({1}), and (_{2}) are the parameters of the model. - (_i) is the error term.\n\n\n\nBelow is a table summarizing the model’s parameters, generated from the fitted model:\n#| label: setup #| message: false #| warning: false library(tidyverse) library(brms) library(gtsummary)\ndf &lt;- read_csv(“/mnt/data/wages_by_education.csv”)\ndf_filtered &lt;- df %&gt;% rename(wage = Average Wage, education_level = Education Level, year = Year) %&gt;% filter(!is.na(wage), !is.na(education_level), !is.na(year))\nfit_model &lt;- brm(formula = wage ~ education_level + year, data = df_filtered, family = gaussian(), refresh = 0, silent = 2, seed = 9)\ntbl_regression(fit_model) e"
+  },
+  {
+    "objectID": "graphs.html#white-peoples-hourly-wages-based-off-education-level",
+    "href": "graphs.html#white-peoples-hourly-wages-based-off-education-level",
+    "title": "Graphs",
+    "section": "White People’s Hourly Wages based off Education Level",
+    "text": "White People’s Hourly Wages based off Education Level"
+  },
+  {
+    "objectID": "graphs.html#black-peoples-hourly-wages-based-off-education-level",
+    "href": "graphs.html#black-peoples-hourly-wages-based-off-education-level",
+    "title": "Graphs",
+    "section": "Black People’s Hourly Wages based off Education Level",
+    "text": "Black People’s Hourly Wages based off Education Level"
+  },
+  {
+    "objectID": "graphs.html#hispanic-peoples-hourly-wages-based-off-education-level",
+    "href": "graphs.html#hispanic-peoples-hourly-wages-based-off-education-level",
+    "title": "Graphs",
+    "section": "Hispanic People’s Hourly Wages based off Education Level",
+    "text": "Hispanic People’s Hourly Wages based off Education Level"
+  }
+]

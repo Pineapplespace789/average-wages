@@ -1,0 +1,728 @@
+---
+title: "Graphs"
+subtitle: Navigate to any of the three ethnicties on the right!
+execute: 
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+library(tidyverse)
+library(primer.data)
+library(ggplot2)
+library(gtsummary)
+library(tidybayes)
+library(tidyr)
+library(readr)
+library(dplyr)
+
+data <- read_csv("C:/Users/Satis/projects/average-wages/wages_by_education.csv")
+```
+## Overview of Hourly Wages based off Education Level
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, less_than_hs, men_less_than_hs, women_less_than_hs) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("less_than_hs", "men_less_than_hs", "women_less_than_hs"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Wages with a Education lower than High School (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, high_school, men_high_school, women_high_school) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("high_school", "men_high_school", "women_high_school"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Wages with just a High School Education (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, some_college, men_some_college, women_some_college) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("some_college", "men_some_college", "women_some_college"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Wages with a College Education (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, bachelors_degree, men_bachelors_degree, women_bachelors_degree) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("bachelors_degree", "men_bachelors_degree", "women_bachelors_degree"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Wages with a Bachelor's Degree (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, advanced_degree, men_advanced_degree, women_advanced_degree) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("advanced_degree", "men_advanced_degree", "women_advanced_degree"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Wages with a Advanced Degree (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+## White People's Hourly Wages based off Education Level
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, white_less_than_hs, white_men_less_than_hs, white_women_less_than_hs) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("white_less_than_hs", "white_men_less_than_hs", "white_women_less_than_hs"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average White Wages with a Education lower than High School (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, white_high_school, white_men_high_school, white_women_high_school) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("white_high_school", "white_men_high_school", "white_women_high_school"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average White Wages with just a High School Education (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, white_some_college, white_men_some_college, white_women_some_college) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("white_some_college", "white_men_some_college", "white_women_some_college"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average White Wages with a College Education (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, white_bachelors_degree, white_men_bachelors_degree, white_women_bachelors_degree) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("white_bachelors_degree", "white_men_bachelors_degree", "white_women_bachelors_degree"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average White Wages with a Bachelor's Degree (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, white_advanced_degree, white_men_advanced_degree, white_women_advanced_degree) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("white_advanced_degree", "white_men_advanced_degree", "white_women_advanced_degree"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average White Wages with a Advanced Degree (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+## Black People's Hourly Wages based off Education Level
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, black_less_than_hs, black_men_less_than_hs, black_women_less_than_hs) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("black_less_than_hs", "black_men_less_than_hs", "black_women_less_than_hs"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Black Wages with a Education lower than High School (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, black_high_school, black_men_high_school, black_women_high_school) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("black_high_school", "black_men_high_school", "black_women_high_school"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Black Wages with just a High School Education (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, black_some_college, black_men_some_college, black_women_some_college) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("black_some_college", "black_men_some_college", "black_women_some_college"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Black Wages with a College Education (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, black_bachelors_degree, black_men_bachelors_degree, black_women_bachelors_degree) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("black_bachelors_degree", "black_men_bachelors_degree", "black_women_bachelors_degree"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Black Wages with a Bachelor's Degree (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, black_advanced_degree, black_men_advanced_degree, black_women_advanced_degree) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("black_advanced_degree", "black_men_advanced_degree", "black_women_advanced_degree"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Black Wages with a Advanced Degree (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+## Hispanic People's Hourly Wages based off Education Level
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, hispanic_less_than_hs, hispanic_men_less_than_hs, hispanic_women_less_than_hs) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("hispanic_less_than_hs", "hispanic_men_less_than_hs", "hispanic_women_less_than_hs"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Hispanic Wages with a Education lower than High School (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, hispanic_high_school, hispanic_men_high_school, hispanic_women_high_school) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("hispanic_high_school", "hispanic_men_high_school", "hispanic_women_high_school"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Hispanic Wages with just a High School Education (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, hispanic_some_college, hispanic_men_some_college, hispanic_women_some_college) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("hispanic_some_college", "hispanic_men_some_college", "hispanic_women_some_college"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Hispanic Wages with a College Education (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, hispanic_bachelors_degree, hispanic_men_bachelors_degree, hispanic_women_bachelors_degree) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("hispanic_bachelors_degree", "hispanic_men_bachelors_degree", "hispanic_women_bachelors_degree"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Hispanic Wages with a Bachelor's Degree (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, hispanic_advanced_degree, hispanic_men_advanced_degree, hispanic_women_advanced_degree) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("hispanic_advanced_degree", "hispanic_men_advanced_degree", "hispanic_women_advanced_degree"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Hispanic Wages with a Advanced Degree (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```

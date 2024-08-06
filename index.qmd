@@ -1,0 +1,65 @@
+---
+title: "Average Hourly Wages Yearly in the US"
+author: "SriRitvik Yellamilli"
+format: html
+execute: 
+  echo: false
+---
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+library(tidyverse)
+library(primer.data)
+library(ggplot2)
+library(gtsummary)
+library(tidybayes)
+library(tidyr)
+library(readr)
+library(dplyr)
+
+data <- read_csv("C:/Users/Satis/projects/average-wages/wages_by_education.csv")
+```
+### Summary
+
+The "Wages by Education" dataset provides a detailed examination of the average hourly wages of workers in the USA, segmented by their highest level of education attained. Spanning from 1973 to 2022, this dataset is sourced from the Economic Policy Institute’s State of Working America Data Library.
+
+Key research areas and insights include exploring the wage gap based on education levels and identifying trends over time. Analysts can delve into the impact of education on wages across different demographic groups, such as gender and race/ethnicity, and investigate changes in wage inequality between education groups over the decades. The dataset allows for the examination of the relationship between wages and economic indicators like inflation and GDP. Additionally, it enables comparisons of wage trends in various sectors or industries based on education levels and visualizes the wage premiums associated with advanced degrees and their changes over time. The dataset also facilitates exploration of how educational attainment affects wage disparity.
+
+### Graph
+
+```{r}
+# Filter data for the years 2005 to 2020
+filtered_data <- data %>% filter(year >= 2005 & year <= 2020)
+
+# Select relevant columns and pivot data longer
+long_data <- filtered_data %>%
+  select(year, high_school, men_high_school, women_high_school) %>%
+  pivot_longer(cols = -year, names_to = "Group", values_to = "Wage")
+
+# Rename the levels of the Group factor
+long_data$Group <- factor(long_data$Group, 
+                          levels = c("high_school", "men_high_school", "women_high_school"),
+                          labels = c("Average", "Men", "Women"))
+
+# Create the plot
+ggplot(long_data, aes(x = year, y = Wage, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Wages with just a High School Education (2005-2020)",
+       x = "Years",
+       y = "Hourly Wages (dollars)",
+       fill = "Groups") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    legend.background = element_rect(fill = "black", color = NA),
+    legend.key = element_rect(fill = "black", color = NA),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    plot.title = element_text(color = "white", hjust = 0.5),
+    legend.text = element_text(color = "white"),
+    legend.title = element_text(color = "white"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```

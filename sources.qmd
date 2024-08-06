@@ -1,0 +1,7 @@
+---
+title: "Sources"
+---
+
+This project takes its data from[Wages by Education in the USA (1973-2022)](https://www.kaggle.com/datasets/asaniczka/wages-by-education-in-the-usa-1973-2022) by [asaniczka](https://www.kaggle.com/asaniczka) on [Kaggle](https://www.kaggle.com).
+
+The "Wages by Education" dataset offers a comprehensive analysis of average hourly wages in the USA, categorized by the highest level of education attained, spanning from 1973 to 2022. This dataset, sourced from the Economic Policy Institute’s State of Working America Data Library, enables a detailed exploration of the wage gap based on educational attainment and reveals trends over the decades. It provides opportunities to analyze how education impacts wages across different demographic groups, such as gender and race/ethnicity, and investigate the evolution of wage inequality among educational groups. Researchers can also examine correlations between wages and economic indicators like inflation and GDP, and compare wage trends across various sectors and industries. Additionally, the dataset allows for the visualization of wage premiums associated with advanced degrees and their temporal changes, thereby offering valuable insights into how educational attainment influences wage disparity.

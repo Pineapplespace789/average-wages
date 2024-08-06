@@ -1,0 +1,20 @@
+---
+title: "About"
+---
+
+## About Me
+Hello, My name is SriRitvik Yellamilli and I am a high school student in Illinois. 
+
+Github account: [Github - Pineapplespace789](https://github.com/Pineapplespace789)
+
+## About This Project
+
+Find the Github repository here: [Average Wages Repository](https://github.com/Pineapplespace789/average-wages)
+
+This project was created as a part of Kane’s Data Science Bootcamp.
+
+[Bootcamp Website](https://bootcamp.davidkane.info/)
+
+These were the resources I used to complete this project.
+
+[ChatGPT](https://chatgpt.com) & [Kaggle - Wages by Education in the USA (1973-2022)](https://www.kaggle.com/datasets/asaniczka/wages-by-education-in-the-usa-1973-2022)
