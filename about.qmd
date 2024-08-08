@@ -13,7 +13,7 @@ Find the Github repository here: [Average Wages Repository](https://github.com/P
 
 This project was created as a part of Kane’s Data Science Bootcamp.
 
-[Bootcamp Website](https://bootcamp.davidkane.info/)
+[Bootcamp's Website](https://bootcamp.davidkane.info/)
 
 These were the resources I used to complete this project.
 

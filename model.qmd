@@ -1,0 +1,75 @@
+---
+title: "Model"
+subtitle: "What is the difference between black, white, and hispanic wages through each education level?"
+execute: 
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+library(tidyverse)
+library(primer.data)
+library(brms)
+library(tidybayes)
+library(gtsummary)
+library(dplyr)
+```
+
+```{r}
+#| cache: true
+large_data <- read_csv("C:/Users/Satis/projects/average-wages/wages_by_education.csv")
+```
+
+To answer the question of what is the difference between the three ethnicity's wages for each education level, we first analyze the wage data across different education levels using a Bayesian regression model. For this initial model, we use the following formula:
+
+$$
+\text{wage} = \beta_{0} + \beta_{1} \times \text{education}_i
++ \beta_{2} \times \text{year}_i
+$$
+
+```{r}
+#| cache: true
+
+fit_education <- brm(formula = year ~ less_than_hs + high_school + some_college + bachelors_degree + advanced_degree,
+                  data = large_data,
+                  family = gaussian(),
+                  refresh = 0,
+                  silent = 2,
+                  seed = 9)
+
+tbl_regression(fit_education)
+```
+
+We observe the impact of different education levels on average hourly wages. Next, we calculate the effect of education level over time using the following model:
+
+$$
+\text{wage} = \beta_{0} + \beta_{1} \times \text{education}_i + \beta_{2} \times \text{ethnicity}_i 
+$$
+```{r}
+#| cache: true
+
+fit_education_year <- brm(formula = high_school ~ white_less_than_hs + white_high_school + white_some_college +
+                            white_bachelors_degree + white_advanced_degree + black_less_than_hs +
+                            black_high_school + black_some_college + black_bachelors_degree + black_advanced_degree +
+                            hispanic_less_than_hs + hispanic_high_school + hispanic_some_college + hispanic_bachelors_degree +
+                            hispanic_advanced_degree,
+                  data = large_data,
+                  family = gaussian(),
+                  refresh = 0,
+                  silent = 2,
+                  seed = 9)
+
+fit_education_year
+```
+
+This model includes the year variable to account for changes over time and provides a more comprehensive analysis.
+
+```{r}
+tbl_regression(fit_education_year)
+```
+
+In summary, we find that higher education levels generally correspond to higher wages. This relationship persists over the years, emphasizing the value of education in increasing earning potential. The dataset allows us to visualize these trends and understand the long-term impact of education on wages in the USA.
